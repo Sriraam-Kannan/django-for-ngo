@@ -1,0 +1,31 @@
+<!-- loan_calculator/templates/loan_calculator/results.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Results</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<h2>Loan Results</h2>
+<!-- Display your loan results here -->
+<p>Principle: {{ loan.principle }}</p>
+<p>Tenure: {{ loan.tenure }}</p>
+<p>Interest: {{ loan.interest }}</p>
+<p>Loan Type: {{ loan.loan_type }}</p>
+<p>Monthly Repayment: {{ loan.monthly_repayment }}</p>
+<!-- Add a button or link to redirect to the home page -->
+<a href="{% url 'loan_calculator:home' %}">Go to Home</a>
+
+<a href="{% url 'loan_calculator:calculate_loan' %}">
+    <button>Loan Calculator</button>
+    
+</a>
+
+</body>
+</html>

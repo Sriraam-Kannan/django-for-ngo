@@ -1,0 +1,39 @@
+<!-- loan_calculator/templates/loan_calculator/loan_application.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<h2>Loan Application</h2>
+<form method="post" action="{% url 'loan_calculator:submit_application' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <!-- Additional Fields for Loan Application -->
+    <label for="{{ form.name.id_for_label }}">Name:</label>
+    {{ form.name }}
+    <br>
+    <label for="{{ form.address.id_for_label }}">Address:</label>
+    {{ form.address }}
+    <br>
+    <label for="{{ form.phone_number.id_for_label }}">Phone Number:</label>
+    {{ form.phone_number }}
+    <label for="{{ form.pan_number.id_for_label }}">PAN Number:</label>
+    {{ form.pan_number }}
+    <label for="{{ form.aadhar_number.id_for_label }}">Aadhar Number:</label>
+    {{ form.phone_number }}
+    <label for="{{ form.email.id_for_label }}">Email ID:</label>
+    {{ form.email }}
+    
+    <br>
+
+    <button type="submit">Submit Application</button>
+</form>
+
+</body>
+</html>

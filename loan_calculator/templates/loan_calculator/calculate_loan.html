@@ -1,0 +1,32 @@
+<!-- loan_calculator/templates/loan_calculator/calculate_loan.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<h2>Loan Calculator</h2>
+<form method="post" action="{%url 'loan_calculator:calculate_loan'%}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <fieldset>
+        <legend>Loan Type</legend>
+        {% for loan_type, loan_label in form.fields.loan_type.choices %}
+            <label>
+                <input type="radio" name="{{ form.loan_type.name }}" value="{{ loan_type }}" {% if form.loan_type.value == loan_type %}checked{% endif %}>
+                {{ loan_label }}
+            </label><br>
+        {% endfor %}
+    </fieldset>
+    <button type="submit">Calculate</button>
+    <a href="{% url 'loan_calculator:home' %}">Go to Home</a>
+
+</form>
+
+</body>
+</html>

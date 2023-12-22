@@ -1,0 +1,17 @@
+<!-- loan_calculator/templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Loan Calculator</title>
+</head>
+<body>
+    <h1>Welcome to the Loan Calculator - NGO</h1>
+    
+    <!-- Button to redirect to the loan calculator page -->
+    <a href="{% url 'loan_calculator:calculate_loan' %}">
+        <button>Loan Calculator</button>
+    </a>
+</body>
+</html>
