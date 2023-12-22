@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loan Application</title>
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
 
 <h2>Loan Application</h2>
-<form method="post" action="{% url 'loan_calculator:submit_application' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
+<form method="post" action="{% url 'loan_calculator:apply_loan' %}">
+
 
     <!-- Additional Fields for Loan Application -->
     <label for="{{ form.name.id_for_label }}">Name:</label>
@@ -29,10 +29,22 @@
     {{ form.phone_number }}
     <label for="{{ form.email.id_for_label }}">Email ID:</label>
     {{ form.email }}
+<p>Principle: {{ loan.principle }}</p>
+<p>Tenure (in years): {{ loan.tenure }}</p>
+<p>Interest: {{ loan.interest }}</p>
+<p>Loan Type: {{ loan.loan_type }}</p>
+<p>Monthly Repayment: {{ loan.monthly_repayment }}</p>
     
     <br>
 
     <button type="submit">Submit Application</button>
+    <a href="{% url 'loan_calculator:home' %}">
+        <button type="button">Go to Home</button></a>
+
+<a href="{% url 'loan_calculator:calculate_loan' %}">
+    <button type="button">Loan Calculator</button>
+    
+</a>
 </form>
 
 </body>

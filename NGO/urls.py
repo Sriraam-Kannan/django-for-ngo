@@ -27,5 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('loan_calculator/', include(('loan_calculator.urls', 'loan_calculator'), namespace='loan_calculator')),
-    path('apply_loan/', include(('apply_loan.urls', 'apply_loan'), namespace='apply_loan')),
+    path('apply_loan/', include(('loan_calculator.urls', 'loan_calculator'), namespace='loan_calculator_apply_loan')),
+
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

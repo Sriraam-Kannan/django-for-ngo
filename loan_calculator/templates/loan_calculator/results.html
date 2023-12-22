@@ -15,15 +15,20 @@
 <h2>Loan Results</h2>
 <!-- Display your loan results here -->
 <p>Principle: {{ loan.principle }}</p>
-<p>Tenure: {{ loan.tenure }}</p>
+<p>Tenure (in years): {{ loan.tenure }}</p>
 <p>Interest: {{ loan.interest }}</p>
 <p>Loan Type: {{ loan.loan_type }}</p>
 <p>Monthly Repayment: {{ loan.monthly_repayment }}</p>
 <!-- Add a button or link to redirect to the home page -->
-<a href="{% url 'loan_calculator:home' %}">Go to Home</a>
-
+<a href="{% url 'loan_calculator:home' %}">
+<button type= button>Go to Home</button>
+</a>
 <a href="{% url 'loan_calculator:calculate_loan' %}">
     <button>Loan Calculator</button>
+    
+</a>
+<a href="{% url 'loan_calculator:apply_loan' %}">
+    <button>Apply Loan</button>
     
 </a>
 
